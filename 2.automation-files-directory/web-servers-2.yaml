@@ -1,0 +1,21 @@
+- become: true
+  handlers:
+  - name: Restart Nginx
+    service:
+      name: nginx
+      state: restarted
+  hosts: web_servers
+  name: Install and configure Nginx
+  tasks:
+  - apt:
+      update_cache: true
+    name: Update apt package index
+  - apt:
+      name: nginx
+      state: present
+    name: Install Nginx
+  - name: Copy Nginx configuration file
+    notify: Restart Nginx
+    template:
+      dest: /etc/nginx/nginx.conf
+      src: nginx.conf.j2

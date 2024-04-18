@@ -1,18 +1,11 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<root>
-    <person>
-        <name>John Doe</name>
-        <age>30</age>
-        <city>New York</city>
-    </person>
-    <person>
-        <name>Jane Smith</name>
-        <age>25</age>
-        <city>Los Angeles</city>
-    </person>
-    <person>
-        <name>Michael Johnson</name>
-        <age>40</age>
-        <city>Chicago</city>
-    </person>
-</root>
+<?xml version="1.0"?>
+<data>
+    <package>
+        <name>Package 1</name>
+        <price>100</price>
+    </package>
+    <package>
+        <name>Package 2</name>
+        <price>150</price>
+    </package>
+</data>

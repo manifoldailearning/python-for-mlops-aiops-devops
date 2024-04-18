@@ -1,0 +1,3 @@
+This is another line for my file
+
+This is the outcome of append
