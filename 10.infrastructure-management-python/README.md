@@ -35,8 +35,3 @@
 * The Pulumi AWS provider automatically uses these environment variables for authentication.
 * You can alternatively use `pulumi config` commands for more persistent configuration.
 
-**Next Steps**
-
-* **Create a new Pulumi project:** Follow the "Create Project" and "Modify..." sections of the Pulumi AWS Getting Started guide.
-* **Learn more:** Explore the Pulumi AWS documentation at [https://www.pulumi.com/docs/intro/cloud-providers/aws/](https://www.pulumi.com/docs/intro/cloud-providers/aws/)
-
