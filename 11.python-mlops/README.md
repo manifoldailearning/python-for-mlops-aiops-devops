@@ -1,21 +1,29 @@
-# General Project Structure
+# Set up EC2 Instance
 
-mlops_project_name/
-├── src/
-│   ├── model.py                # Model definition and training logic
-│   ├── data_processing.py      # Data cleaning and transformation
-│   ├── utils.py                # General helper functions
-│   └── __init__.py             # Module initialization
-├── tests/
-│   ├── test_model.py           # Unit tests for model behavior
-│   ├── test_data_processing.py # Unit tests for data cleaning
-│   └── test_utils.py          # Unit tests for helper functions
-├── model/                      # Folder to store trained models
-├── data/
-│   ├── raw/                    # Folder for raw data
-│   └── processed/              # Folder for processed data 
-├── requirements.txt            # Project dependencies
-├── train.py                    # Main script for model training
-├── predict.py                  # Script for inference/predictions
-├── config.yml                  # Project configuration parameters
-└── README.md                   # Project description and setup instructions
+Ensure port 80 is enabled
+```
+sudo yum update -y
+sudo amazon-linux-extras install docker
+sudo service docker start
+sudo systemctl start docker
+sudo service docker status
+sudo groupadd docker
+sudo usermod -a -G docker ec2-user
+newgrp docker
+docker —-version
+
+# create ECR with name: my-flask-app
+aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 866824485776.dkr.ecr.us-east-1.amazonaws.com
+```
+
+```bash
+
+curl -X POST -H "Content-Type: application/json" \
+     -d '{"data": [[5.1, 3.5, 1.4, 0.2]]}' \
+     http://127.0.0.1:5000/predict
+
+
+curl -X POST -H "Content-Type: application/json" \
+     -d '{"data": [[5.1, 3.5, 1.4, 0.2]]}' \
+     http://54.172.91.243/predict
+```

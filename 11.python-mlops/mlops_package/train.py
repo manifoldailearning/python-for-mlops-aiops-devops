@@ -1,12 +1,22 @@
+#!/usr/bin/env python
 import pandas as pd
+from pathlib import Path
+import os 
+import sys 
+import joblib
+
+PACKAGE_ROOT = Path(os.path.abspath(os.path.dirname(__file__))).parent
+sys.path.append(str(PACKAGE_ROOT))
+
 from src.model import IrisClassifier
 from src.data_processing import load_iris_data
 from sklearn.model_selection import train_test_split 
 from sklearn.metrics import accuracy_score
 import pickle
+import config
 
 def main():
-    data_path = 'data/raw/iris.csv'  
+    data_path = config.file_path 
 
     df = load_iris_data(data_path)
 
@@ -23,8 +33,7 @@ def main():
     print("Accuracy:", accuracy)
 
     # Save the model
-    with open('model/iris_model.pkl', 'wb') as f:
-        pickle.dump(model, f)
+    joblib.dump(model,'model/iris_model.joblib')
 
 if __name__ == '__main__':
     main()

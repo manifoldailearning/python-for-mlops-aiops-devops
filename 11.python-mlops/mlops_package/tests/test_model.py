@@ -1,6 +1,14 @@
 import pytest
 import pandas as pd
 from sklearn.datasets import load_iris 
+import sys
+import pathlib
+import os 
+from pathlib import Path
+
+PACKAGE_ROOT = Path(os.path.abspath(os.path.dirname(__file__))).parent
+sys.path.append(str(PACKAGE_ROOT))
+
 from src.model import IrisClassifier
 
 @pytest.fixture()
